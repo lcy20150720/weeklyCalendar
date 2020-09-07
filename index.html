@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>calendar</title>
+</head>
+<style>
+*{padding: 0;margin: 0;list-style: none;}
+body{background: #eee;}
+.calendar_box{width: 924px;height: 72px;margin: 50px auto;background: #fff;padding: 0 44px;box-sizing: border-box;position: relative;}
+.control_btn{width: 50px;height: 72px;background: #ccc;display: block;position: absolute;top: 0;text-decoration: none;color: #fff;text-align: center;
+line-height: 72px;font-size: 40px;}
+.date_wrap{width: 100%;height: 72px;padding: 0 44px;box-sizing: border-box;overflow: hidden;}
+.prev{left: 24px;}
+.next{right: 24px;}
+.date_list .date_box{display:inline-block;height:72px;float:left;text-decoration:none;width:43px;text-align:center;font-size:14px;margin-right:68px;padding:16px 0 8px 0;box-sizing:border-box;position:relative;}
+.date_box:nth-child(7n){margin-right: 0;}
+.date_list .date_box a{text-decoration:none;}
+.date_list .date_box.active:after{content: '';position: absolute;left: 50%;margin-left: -20px; bottom: 0;
+    width: 40px;height: 3px;background: rgba(235,77,84,1);border-radius: 100px 100px 0px 0px;display: block;}
+.date_list{width: 200%;position: relative;}
+.date{color:#333;font-weight:bold;margin-bottom:6px}
+.week{color:#666}
+</style>
+<body>
+	<div class="calendar_box" id="weeklyCalendar">
+		<div class="date_wrap">
+			<ul class="date_list" role="weeklyCanlendarView">
+			</ul>
+		</div>
+		<a href="javascript:;" class="prev control_btn" role="prev_week"><</a>
+		<a href="javascript:;" class="next control_btn" role="next_week">></a>
+		<b role="week_selector" style="display: none"></b>  
+	</div>
+	<script src="js/weeklyCalendar.js"></script>
+	<script>
+		window.addEventListener('load',function(){
+			weeklyCalendar('#weeklyCalendar',{
+		        days: 7,
+		        clickDate:function(dateTime){
+		          console.log(dateTime);
+		        }
+		    });  
+		});
+	</script>
+</body>
+</html>
