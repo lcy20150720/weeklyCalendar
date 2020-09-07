@@ -157,15 +157,12 @@ function weeklyCalendar(container, options) {
     $$('weeklyCanlendarView').setAttribute('clickedTimes', 0);
     //获取点击次数
     var clickedTimes = $$('weeklyCanlendarView').getAttribute('clickedTimes');
-    var weekNum = $$('week_selector').getAttribute('week');
+    var weekNum;
     /*前一周和后一周方法*/
     var changeWeek = function(clickedTimes, weekNum) {
         creatWeekCalendar(-activeDay - (options.days* clickedTimes));
         $$('weeklyCanlendarView').setAttribute('clickedTimes', clickedTimes);
         setDisabled();
-        //动态设置周，周设置属性，仅作为点击前一周和后一周计算的时候显示周视图
-        $$('week_selector').innerHTML = weekNum;
-        $$('week_selector').setAttribute('week', weekNum);
         bindClick();
     }
 
